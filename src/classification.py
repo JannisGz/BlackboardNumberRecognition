@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Dense
@@ -71,7 +73,7 @@ class Classifier:
         # Check if a trained model exists
         if not self.model:
             try:
-                self.model = load_model("model.h5")
+                self.model = load_model("src/model.h5")
             except IOError:
                 print("No model found. Trying to train a new one.")
                 self.train()
